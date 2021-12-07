@@ -1,9 +1,10 @@
 import 'package:clock_app/src/model/alarm.dart';
 import 'package:clock_app/src/repository/database/alarm_database.dart';
 import 'package:clock_app/src/repository/database/table/alarm_table.dart';
+import 'package:get_it/get_it.dart';
 
 class AlarmRepository {
-  final db = AlarmDatabase();
+  final db = GetIt.instance.get<AlarmDatabase>();
 
   Future<List<Alarm>> getAllAlarm() async {
     final alarms = <Alarm>[];

@@ -3,12 +3,13 @@ import 'package:clock_app/src/repository/database/alarm_database.dart';
 import 'package:clock_app/src/repository/database/table/alarm_table.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_native_timezone/flutter_native_timezone.dart';
+import 'package:get_it/get_it.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:clock_app/main.dart';
 
 class NotificationRepository {
-  final db = AlarmDatabase();
+  final db = GetIt.instance.get<AlarmDatabase>();
 
   Future<Alarm?> getAlarm(DateTime dateTime) async {
     final record = await db.getAlarmRecordByDateTime(dateTime);
@@ -28,9 +29,14 @@ class NotificationRepository {
 
     await _setTimezone();
     const androidPlatformChannelSpecifics = AndroidNotificationDetails(
-        'alarm_notif', 'alarm_notif',
-        channelDescription: 'Notification Alarm',
-        sound: RawResourceAndroidNotificationSound('custom_alarm'));
+      'alarm_notif_1',
+      'alarm_notif',
+      channelDescription: 'notification_alarm',
+      importance: Importance.high,
+      priority: Priority.high,
+      playSound: true,
+      sound: RawResourceAndroidNotificationSound('custom_alarm'),
+    );
     const iOSPlatformChannelSpecifics = IOSNotificationDetails(
         sound: 'custom_alarm.wav',
         presentAlert: true,

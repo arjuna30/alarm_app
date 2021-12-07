@@ -3,14 +3,19 @@ import 'package:clock_app/src/bloc/clock_bloc.dart';
 import 'package:clock_app/src/bloc/notification_bloc.dart';
 import 'package:clock_app/src/bloc/set_alarm_bloc.dart';
 import 'package:clock_app/src/page/home.dart';
+import 'package:clock_app/src/repository/database/alarm_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:get_it/get_it.dart';
+
+final _getIt = GetIt.instance;
 
 final flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
-const _initializationSettingsAndroid = AndroidInitializationSettings('clock');
+const _initializationSettingsAndroid =
+    AndroidInitializationSettings('ic_stat_clock');
 const _initializationSettingsIOS = IOSInitializationSettings(
     requestAlertPermission: true,
     requestBadgePermission: true,
@@ -27,6 +32,7 @@ void main() async {
       debugPrint('Nofitication Payload : ' + payload);
     }
   });
+  _getIt.registerSingleton<AlarmDatabase>(AlarmDatabase());
   runApp(const MyApp());
 }
 
