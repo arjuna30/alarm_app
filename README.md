@@ -1,6 +1,7 @@
 # Alarm App
 A simple alarm app.
-![App Screenshot](https://lh6.googleusercontent.com/PI4_dWGDYAGkCyVuHANx9a-nZ4lxQrgPEMK0Es8z9G1aun7mFT09pvbS9kQQBxAP-JjCiIMsKTrWL-YNfY8k=w3360-h1574-rw =200x)
+
+![App Screenshot](https://github.com/arjuna30/alarm_app/tree/master/assets/screenshot.png =200x)
 
 How to use the app:
  - For adjusting minute, drag the clock horizontally
