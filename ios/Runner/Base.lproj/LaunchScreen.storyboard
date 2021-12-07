@@ -20,10 +20,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="YRO-k0-Ey4">
-                                <rect key="frame" x="86.5" y="385.5" width="241.5" height="125"/>
+                                <rect key="frame" x="79" y="320" width="256" height="256"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by Arjun Abdillah" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNk-rM-DJM">
-                                <rect key="frame" x="20" y="841" width="374" height="21"/>
+                                <rect key="frame" x="20" y="821" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.8156862855" green="0.37647059560000001" blue="0.31372550129999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -32,7 +32,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="YRO-k0-Ey4" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1a2-6s-vTC"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="mNk-rM-DJM" secondAttribute="bottom" id="2gs-f5-hn3"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="mNk-rM-DJM" secondAttribute="bottom" constant="20" id="2gs-f5-hn3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mNk-rM-DJM" secondAttribute="trailing" id="2lR-wO-zHQ"/>
                             <constraint firstItem="YRO-k0-Ey4" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="4X2-HB-R7a"/>
                             <constraint firstItem="mNk-rM-DJM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="DPO-Pe-AKx"/>
@@ -46,6 +46,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchImage" width="241.5" height="125"/>
+        <image name="LaunchImage" width="256" height="256"/>
     </resources>
 </document>
