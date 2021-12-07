@@ -4,6 +4,7 @@ import 'package:clock_app/src/bloc/notification_bloc.dart';
 import 'package:clock_app/src/bloc/set_alarm_bloc.dart';
 import 'package:clock_app/src/model/alarm.dart';
 import 'package:clock_app/src/widget/analog_clock.dart';
+import 'package:clock_app/src/widget/custom_circle_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
@@ -152,7 +153,7 @@ class _BodyHomePage extends StatelessWidget {
                                         .read<AlarmBloc>()
                                         .add(GetCurrentTimeEvent());
                                   },
-                                  child: Text('$hourMinute'),
+                                  child: Text(hourMinute),
                                 );
                               }
                               return const SizedBox.shrink();
@@ -162,7 +163,7 @@ class _BodyHomePage extends StatelessWidget {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(right: 30, bottom: 12),
-                        child: ElevatedButton(
+                        child: CustomCircleButton(
                           onPressed: () {
                             context
                                 .read<SetAlarmBloc>()
@@ -171,18 +172,6 @@ class _BodyHomePage extends StatelessWidget {
                                 .read<NotificationBloc>()
                                 .add(SetNotificationEvent(time));
                           },
-                          child: const SizedBox(
-                            height: 50,
-                            child: Icon(Icons.add, size: 30),
-                          ),
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(
-                                Colors.grey.shade800),
-                            foregroundColor:
-                                MaterialStateProperty.all<Color>(Colors.white),
-                            shape: MaterialStateProperty.all<OutlinedBorder>(
-                                const CircleBorder()),
-                          ),
                         ),
                       )
                     ],

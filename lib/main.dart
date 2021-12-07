@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Clock App',
+        title: 'Alarm App',
         theme: ThemeData.dark().copyWith(
             brightness: Brightness.dark, primaryColor: Colors.lightGreenAccent),
         home: const HomePage(),

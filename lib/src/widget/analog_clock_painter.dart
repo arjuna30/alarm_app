@@ -232,7 +232,6 @@ class AnalogClockPainter extends CustomPainter {
     return Offset(length * cos(angle), length * sin(angle));
   }
 
-  // ref: https://www.codenameone.com/blog/codename-one-graphics-part-2-drawing-an-analog-clock.html
   void _paintTickMarks(Canvas canvas, Size size, double scaleFactor) {
     double r = size.shortestSide / 2;
     double tick = 5 * scaleFactor,
