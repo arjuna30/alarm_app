@@ -30,7 +30,7 @@ class AlarmRepository {
     await db.deleteRecord(alarmRecord);
   }
 
-  void toggleIsActive(Alarm alarm) async {
+  Future<void> toggleIsActive(Alarm alarm) async {
     final alarmRecord = alarm.toRecord();
     await db.updateIsActiveRecord(alarmRecord);
   }
