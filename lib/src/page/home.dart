@@ -19,7 +19,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late DateTime time;
-  final currentTime = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
