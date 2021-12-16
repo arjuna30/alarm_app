@@ -3,16 +3,17 @@ import 'package:clock_app/src/repository/database/alarm_database.dart';
 import 'package:clock_app/src/repository/database/table/alarm_table.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_native_timezone/flutter_native_timezone.dart';
-import 'package:get_it/get_it.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:clock_app/main.dart';
 
 class NotificationRepository {
-  final db = GetIt.instance.get<AlarmDatabase>();
+  final AlarmDatabase _alarmDatabase;
+
+  NotificationRepository(this._alarmDatabase);
 
   Future<Alarm?> getAlarm(DateTime dateTime) async {
-    final record = await db.getAlarmRecordByDateTime(dateTime);
+    final record = await _alarmDatabase.getAlarmRecordByDateTime(dateTime);
     return record?.toModel();
   }
 

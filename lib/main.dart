@@ -3,14 +3,16 @@ import 'package:clock_app/src/bloc/clock_bloc.dart';
 import 'package:clock_app/src/bloc/notification_bloc.dart';
 import 'package:clock_app/src/bloc/set_alarm_bloc.dart';
 import 'package:clock_app/src/page/home.dart';
+import 'package:clock_app/src/repository/alarm_repository.dart';
 import 'package:clock_app/src/repository/database/alarm_database.dart';
+import 'package:clock_app/src/repository/notification_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get_it/get_it.dart';
 
-final _getIt = GetIt.instance;
+final injector = GetIt.instance;
 
 final flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
@@ -32,7 +34,7 @@ void main() async {
       debugPrint('Nofitication Payload : ' + payload);
     }
   });
-  _getIt.registerSingleton<AlarmDatabase>(AlarmDatabase());
+  _injectModule();
   runApp(const MyApp());
 }
 
@@ -58,4 +60,11 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+}
+
+void _injectModule() {
+  injector.registerSingleton<AlarmDatabase>(AlarmDatabase());
+  injector.registerSingleton<NotificationRepository>(
+      NotificationRepository(injector.get()));
+  injector.registerSingleton<AlarmRepository>(AlarmRepository(injector.get()));
 }

@@ -2,18 +2,18 @@ import 'package:bloc/bloc.dart';
 import 'package:clock_app/src/model/alarm.dart';
 import 'package:clock_app/src/repository/alarm_repository.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
+import 'package:clock_app/main.dart';
 
 part 'set_alarm_event.dart';
 part 'set_alarm_state.dart';
 
 class SetAlarmBloc extends Bloc<SetAlarmEvent, SetAlarmState> {
+  final AlarmRepository _alarmRepository;
+
   static SetAlarmBloc create(BuildContext context) =>
-      SetAlarmBloc()..add(GetAlarmEvent());
+      SetAlarmBloc._(injector.get())..add(GetAlarmEvent());
 
-  final _alarmRepository = AlarmRepository();
-
-  SetAlarmBloc() : super(SetAlarmInitial()) {
+  SetAlarmBloc._(this._alarmRepository) : super(SetAlarmInitial()) {
     on<GetAlarmEvent>(_getSavedAlarm);
     on<AddAlarmEvent>(_addAlarm);
     on<DeleteAlarmEvent>(_deleteAlarm);

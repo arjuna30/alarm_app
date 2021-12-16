@@ -4,17 +4,19 @@ import 'package:bloc/bloc.dart';
 import 'package:clock_app/src/model/alarm.dart';
 import 'package:clock_app/src/repository/notification_repository.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
+import 'package:clock_app/main.dart';
 
 part 'notification_event.dart';
 part 'notification_state.dart';
 
 class NotificationBloc extends Bloc<NotificationEvent, NotificationState> {
-  static NotificationBloc create(BuildContext context) => NotificationBloc();
+  final NotificationRepository _notificationRepository;
 
-  final _notificationRepository = NotificationRepository();
+  static NotificationBloc create(BuildContext context) =>
+      NotificationBloc._(injector.get());
 
-  NotificationBloc() : super(NotificationInitial()) {
+  NotificationBloc._(this._notificationRepository)
+      : super(NotificationInitial()) {
     on<SetNotificationEvent>(_setNotification);
     on<RemoveNotificationEvent>(_removeNotification);
   }
